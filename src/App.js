@@ -5,6 +5,7 @@ import Main from './pages/Main';
 import { Route, Routes } from 'react-router-dom';
 import SpDetailContainer from './containers/SpDetailContainer';
 import SpecialContainer from './containers/SpecialContainer';
+import JoinPage from './pages/JoinPage';
 function App() {
   return (
     <div className="App">
@@ -13,6 +14,7 @@ function App() {
         <Route path="/" element={<Main/>}/>
         <Route path="/special" element={<SpecialContainer isMain={false} />}/>
         <Route path="/special/:no" element={<SpDetailContainer/>}/>
+        <Route path="/join" element={<JoinPage/>}/>
       </Routes>
       <Footer/>
     </div>

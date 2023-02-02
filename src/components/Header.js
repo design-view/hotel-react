@@ -17,7 +17,7 @@ const Header = () => {
                     <MdFace/>
                     <ul className='membermenu'>
                         <li><Link to="/login">로그인</Link></li>
-                        <li>회원가입</li>
+                        <li><Link to="/join">회원가입</Link></li>
                     </ul>
                 </div>
             </div>
