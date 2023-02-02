@@ -1,19 +1,23 @@
+import {Link} from 'react-router-dom';
 import React from 'react';
+import { API_URL } from '../config/apiurl';
 import './SpecialOffer.css';
 function SpecialList({list}){
+    const { e_title, e_titledesc, e_img1 , e_no} = list;
     return (
         <li>
             <div className='imgdiv'>
-                <img src={list.img} alt=""/>
+                <img src={`${API_URL}/${e_img1}`} alt=""/>
             </div>
             <div className='textdiv'>
-                <h3>{list.title}</h3>
+                <h3>{e_title}</h3>
                 <p>
-                    {list.desc}
+                    {e_titledesc}
                 </p>
                 <div>
+                    <Link to={`/special/${e_no}`}>
                     +<br/>
-                    READ MORE
+                    READ MORE</Link>
                 </div>
             </div>
         </li>
@@ -25,7 +29,7 @@ const SpecialOffer = ({ data }) => {
             <div className='inner'>
                 <h2><span>스페셜 오퍼</span>생각 밖의 선물, 마이다스 호텔 & 리조트</h2>
                 <ul>
-                    {data.map(d=><SpecialList list={d} key={d.id}/>)}
+                    {data.map(d=><SpecialList list={d} key={d.e_no}/>)}
                 </ul>
             </div>
         </div>
