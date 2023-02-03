@@ -10,6 +10,7 @@ function SpecialList({list}){
                 <img src={`${API_URL}/${e_img1}`} alt=""/>
             </div>
             <div className='textdiv'>
+                <Link to={`/special/${e_no}`}>
                 <h3>{e_title}</h3>
                 <p>
                     {e_titledesc}
@@ -17,6 +18,7 @@ function SpecialList({list}){
                 <div>
                     기간 | {e_time}
                 </div>
+                </Link>
             </div>
         </li>
     )

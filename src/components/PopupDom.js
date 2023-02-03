@@ -1,8 +1,8 @@
-import ReactDom from 'react-dom';
- 
+import ReactDOM from 'react-dom';
+
 const PopupDom = ({ children }) => {
     const el = document.getElementById('popupDom');
-    return ReactDom.createPortal(children, el);
+    return ReactDOM.createPortal(children,el);
 };
- 
+
 export default PopupDom;
