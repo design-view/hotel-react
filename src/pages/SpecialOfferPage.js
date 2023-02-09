@@ -7,7 +7,7 @@ function SpecialList({list}){
     return (
         <li>
             <div className='imgdiv'>
-                <img src={`${API_URL}/${e_img1}`} alt=""/>
+                <img src={`${API_URL}/upload/event/${e_img1}`} alt=""/>
             </div>
             <div className='textdiv'>
                 <Link to={`/special/${e_no}`}>
@@ -24,12 +24,13 @@ function SpecialList({list}){
     )
 }
 const SpecialOfferPage = ({data}) => {
+    const listItems = data.map(d=><SpecialList list={d} key={d.e_no}/>);
     return (
         <div className='specialpage'>
-        <div className='inner'>
+            <div className='inner'>
             <Title title="Special"/>
             <ul>
-                {data.map(d=><SpecialList list={d} key={d.e_no}/>)}
+                {listItems}
             </ul>
         </div>
         </div> 

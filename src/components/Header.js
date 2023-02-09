@@ -9,36 +9,40 @@ const Header = () => {
     const isLogin = useSelector(state=>state.logincheck.isLogin);
     const username = getCookie("username");
     const dispatch = useDispatch();
-    console.log(isLogin);
     const logoutClick = () => {
         removeCookie('username');
-        removeCookie('usermail');
+        removeCookie('useremail');
         dispatch(setLogout());
     }
     useEffect(()=>{
         if(username){
-            dispatch(setLogin())
+            dispatch(setLogin());
         }
-    },[])
+    },[username,dispatch])
     return (
         <header>
             <h1><Link to="/"><img src="/images/logo2.png" alt="" /></Link></h1>
             <ul className='menu'>
                 <li><Link to="/special">스페셜오퍼</Link></li>
-                <li>객실안내</li>
-                <li>객실예약</li>
+                <li><Link to="/room">객실안내</Link></li>
+                <li><Link to="/reservation">객실예약</Link></li>
                 <li>이용안내</li>
-                { isLogin && username === 'admin' ? <><li>이벤트등록</li></>
-                : <></>}
+                { isLogin && username === 'admin' ? 
+                <>
+                    <li><Link to='/writeevent'>이벤트 등록</Link></li>
+                    <li><Link to='/writeroom'>객실등록</Link></li>
+                </>
+                : null }
             </ul>
             <div>
                 <div className='iconDiv'>
                     <MdFace/>
                     <ul className='membermenu'>
-                        {!isLogin ? <><li><Link to="/login">로그인</Link></li>
-                        <li><Link to="/join">회원가입</Link></li></> : 
-                        <><li onClick={logoutClick}>로그아웃</li>
-                        <li><Link to="/join">회원정보</Link></li></> }
+                        { isLogin ? <><li onClick={logoutClick}>로그아웃</li>
+                        <li><Link to="/join">회원정보</Link></li></> :
+                        <><li><Link to="/login">로그인</Link></li>
+                        <li><Link to="/join">회원가입</Link></li></>
+                    } 
                     </ul>
                 </div>
             </div>

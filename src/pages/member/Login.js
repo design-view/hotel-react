@@ -10,7 +10,7 @@ const Login = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [loginData, setLoginData ] = useState({
-        usermail:"",
+        useremail:"",
         userpass:""
     })
     const onChage = (e) => {
@@ -23,13 +23,13 @@ const Login = () => {
     const onSubmit = (e) => {
         e.preventDefault();
         //인풋에 입력했는지 체크 
-        if(loginData.usermail === '' || loginData.userpass === ''){
+        if(loginData.useremail === '' || loginData.userpass === ''){
             alert('이메일과 비밀번호를 입력해주세요');
         }else {
             axios.post(`${API_URL}/login`, loginData)
              //로그인이 되었을때
             .then(result=>{
-               let { m_email, m_nickname } = result.data;
+               let { m_email, m_nickname } = result.data[0];
                console.log(result);
                //usermail에 값이 있을때
                if(m_email !== null && m_email !== '' && m_email !== undefined){
@@ -38,7 +38,7 @@ const Login = () => {
                     let expires = new Date();
                     //60분 더한 값으로 변경
                     expires.setMinutes(expires.getMinutes()+60)
-                    setCookie('usermail', `${m_email}`, {path: '/', expires});
+                    setCookie('useremail', `${m_email}`, {path: '/', expires});
                     setCookie('username', `${m_nickname}`, {path: '/', expires});
                     dispatch(setLogin());
                     dispatch(goToHome(navigate));
@@ -54,9 +54,10 @@ const Login = () => {
         <Title title="Login" />
         <form onSubmit={onSubmit}>
             <table className='defaulttable'>
+                <tbody>
                 <tr>
                     <td>아이디(이메일주소)</td>
-                    <td><input type="text" name="usermail" value={loginData.usermail} onChange={onChage}/></td>
+                    <td><input type="text" name="useremail" value={loginData.usermail} onChange={onChage}/></td>
                 </tr>
                 <tr>
                     <td>비밀번호</td>
@@ -67,9 +68,12 @@ const Login = () => {
                 <Link to="/join"><button>회원가입</button></Link></td>
                 </tr>
                 <tr>
-                    <td colSpan={2}><span>아이디 찾기</span>
-                    <span>비밀번호 찾기</span></td>
+                    <td colSpan={2}>
+                        <Link to="/findid"><span>아이디 찾기</span></Link> 
+                        <Link to="/findpass"><span>비밀번호 찾기</span></Link>
+                    </td>
                 </tr>
+                </tbody>
                 </table>
         </form>
         <div>

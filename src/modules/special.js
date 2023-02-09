@@ -25,12 +25,12 @@ const initialState = {
 }
 // redux middlewear thunk함수 생성
 // thunk함수를 사용해서 액션객체를 디스패치하기 
-export const getDatas = () => async dispatch => {
+export const getDatas = (callback) => async dispatch => {
     dispatch({ type: GET_DATAS })  //요청시작
     //에러핸들링
     try {
         //API_URL = http://localhost:8080
-        const response = await axios.get(`${API_URL}/special`);
+        const response = await callback();
         console.log(response);
         const data = response.data;
         dispatch({ type: GET_DATAS_SUCCESS , data: data})
@@ -39,10 +39,10 @@ export const getDatas = () => async dispatch => {
         dispatch({ type: GET_DATAS_ERROR , error: e})
     }
 }
-export const getData = no => async dispatch => {
+export const getData = (no,url) => async dispatch => {
     dispatch({type: GET_DATA});
     try {
-        const response = await axios.get(`${API_URL}/special/${no}`);
+        const response = await axios.get(`${API_URL}/${url}/${no}`);
         const data = response.data;
         dispatch({ type: GET_DATA_SUCCESS, data: data})
     }
@@ -50,6 +50,7 @@ export const getData = no => async dispatch => {
         dispatch({ type: GET_DATA_ERROR , error: e})
     }
 }
+
 //3.리듀서 만들기
 export default function special(state=initialState, action){
     switch(action.type){

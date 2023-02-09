@@ -1,11 +1,13 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import PopupDom from '../../components/PopupDom';
 import PopupPostCode from '../../components/PopupPostCode';
 import Title from '../../components/Title';
 import { API_URL } from '../../config/apiurl';
 import './JoinPage.css';
 const JoinPage = () => {
+    const navigate = useNavigate();
     const [formData, setFormData ] = useState({
         m_name: "",
         m_pass: "",
@@ -55,6 +57,7 @@ const JoinPage = () => {
         axios.post(`${API_URL}/join`, formData)
         .then(res=> {
             alert('등록되었습니다.');
+            navigate('/');
         })
         .catch(e=>{
             console.log("에러가 발생했어요")
