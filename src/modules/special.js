@@ -1,6 +1,5 @@
 // 리덕스 액션타입, 초기값, 액션함수생성, 리듀서
-import axios from "axios";
-import { API_URL } from "../config/apiurl";
+
 
 //1.액션타입
 const GET_DATAS = "special/GET_DATAS";
@@ -39,10 +38,10 @@ export const getDatas = (callback) => async dispatch => {
         dispatch({ type: GET_DATAS_ERROR , error: e})
     }
 }
-export const getData = (no,url) => async dispatch => {
+export const getData = (callback) => async dispatch => {
     dispatch({type: GET_DATA});
     try {
-        const response = await axios.get(`${API_URL}/${url}/${no}`);
+        const response = await callback();
         const data = response.data;
         dispatch({ type: GET_DATA_SUCCESS, data: data})
     }

@@ -1,3 +1,4 @@
+
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
 import Footer from './components/Footer';
@@ -6,7 +7,6 @@ import RoomContainer from './containers/RoomContainer';
 import RoomDetailContainer from './containers/RoomDetailContainer';
 import SpDetailContainer from './containers/SpDetailContainer';
 import SpecialContainer from './containers/SpecialContainer';
-import Example from './pages/Example';
 import Main from './pages/Main';
 import EditPassword from './pages/member/EditPassword';
 import IdFind from './pages/member/IdFind';
@@ -14,6 +14,7 @@ import JoinPage from './pages/member/JoinPage';
 import Login from './pages/member/Login';
 import PassFind from './pages/member/PassFind';
 import Reservation from './pages/Reservation';
+import ResurvCalendar from './pages/ReservCalendar';
 import WriteEvent from './pages/WriteEvent';
 import WriteRoom from './pages/WriteRoom';
 
@@ -34,10 +35,10 @@ function App() {
         <Route path="/writeEvent" element={<WriteEvent />} />
         <Route path="/updatepass" element={<EditPassword/>}/>
         <Route path="/writeRoom" element={<WriteRoom/>}/>
-        <Route path="/room" element={<RoomContainer/>}/>
+        <Route path="/room" element={<RoomContainer isreserv={false}/>}/>
         <Route path="/guestroom/:no" element={<RoomDetailContainer/>}/>
         <Route path="/reservation" element={<Reservation/>}/>
-        <Route path="/test" element={<Example/>}/>
+        <Route path="/test" element={<ResurvCalendar/>}/>
       </Routes>
       <Footer/>
     </div>
