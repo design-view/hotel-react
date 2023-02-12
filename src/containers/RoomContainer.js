@@ -9,20 +9,20 @@ const roomData = async () => {
     const data = axios.get(`${API_URL}/room`);
     return data;
 }
-const RoomContainer = ({isreserv}) => {
-    const { loading, data, error} = useSelector(state=>state.special.specials);
+const RoomContainer = ({ isreserv, reservRoom }) => {
+    const { loading, data, error } = useSelector(state => state.special.specials);
     const dispatch = useDispatch();
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(getDatas(roomData))
-    },[dispatch])
-    if(loading) return <div>로딩중입니다...</div>
-    if(error) return <div>에러가 발생했습니다.</div>
-    if(!data) return <div>데이터가 없습니다.</div>
-    
+    }, [dispatch])
+    if (loading) return <div>로딩중입니다...</div>
+    if (error) return <div>에러가 발생했습니다.</div>
+    if (!data) return <div>데이터가 없습니다.</div>
+
     return (
-        <RoomPage data={data} isreserv={isreserv}/>
+        <RoomPage data={data} isreserv={isreserv} reservRoom={reservRoom} />
     );
-    
-   
+
+
 };
 export default RoomContainer;
