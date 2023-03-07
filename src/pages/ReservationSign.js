@@ -8,7 +8,6 @@ import './ReservationSign.css';
 import { useNavigate } from 'react-router-dom';
 export default function ReservationSign() {
     const reserve = useSelector(state => state.reserve);
-    const isLogin = useSelector(state => state.logincheck.isLogin);
     const dispatch = useDispatch();
     const useremail = getCookie("useremail");
     const username = getCookie("username");

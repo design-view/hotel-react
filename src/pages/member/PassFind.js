@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Title from '../../components/Title';
 import { API_URL } from '../../config/apiurl';
-import { setId } from '../../modules/logincheck';
+import { setId, setMenu } from '../../modules/logincheck';
 
 const PassFind = () => {
     const dispatch = useDispatch();
@@ -13,6 +13,7 @@ const PassFind = () => {
         m_name: "",
         m_email: ""
     });
+    dispatch(setMenu(false))
     const onChange = (e) => {
         const {name, value} = e.target;
         setFormData({
@@ -32,8 +33,9 @@ const PassFind = () => {
             console.log(e);
         })
     }
+    
     return (
-        <div className='inner'>
+        <div className='inner' id="login">
             <Title title="Find password"/>
             { idInfo ? <div>비밀번호를 변경할 수 있습니다. <Link to="/updatepass"><button>비밀번호변경하기</button></Link></div> :
             <><p className='small'>가입시 입력한 이름과 아이디를 입력해 주세요</p>
@@ -42,11 +44,11 @@ const PassFind = () => {
                 <tbody>
                 <tr>
                     <td>이름</td>
-                    <td><input name="m_name" value={formData.m_name} onChange={onChange}/></td>
+                    <td><input type="text" name="m_name" value={formData.m_name} onChange={onChange}/></td>
                 </tr>
                 <tr>
                     <td>아이디(이메일)</td>
-                    <td><input name="m_email" value={formData.m_email} onChange={onChange}/></td>
+                    <td><input type="text" name="m_email" value={formData.m_email} onChange={onChange}/></td>
                 </tr>
                 <tr>
                     <td colSpan={2}>

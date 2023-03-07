@@ -41,7 +41,7 @@ const EditPassword = () => {
         }
     }
     return (
-        <div className='inner'>
+        <div className='inner' id="login">
             <Title title="Update password"/>
             <form onSubmit={onSubmit}>
                 <table>

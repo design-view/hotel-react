@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, {  useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { setCookie } from '../../util/cookie';
 import axios from 'axios';
 import { API_URL } from '../../config/apiurl';
-import { setLogin, goToHome, setLoginuser } from '../../modules/logincheck';
+import { setLogin, goToHome, setMenu } from '../../modules/logincheck';
 import Title from '../../components/Title';
 const Login = () => {
     const dispatch = useDispatch();
@@ -13,6 +13,8 @@ const Login = () => {
         useremail: "",
         userpass: ""
     })
+   
+    dispatch(setMenu(false))
     const onChage = (e) => {
         const { name, value } = e.target;
         setLoginData({
@@ -53,6 +55,7 @@ const Login = () => {
                 })
         }
     }
+  
     return (
         <div className='inner' id="login">
             <Title title="Login" />
@@ -65,7 +68,7 @@ const Login = () => {
                         </tr>
                         <tr>
                             <td>비밀번호</td>
-                            <td><input typw="password" name="userpass" value={loginData.userpass} onChange={onChage} /></td>
+                            <td><input type="password" name="userpass" value={loginData.userpass} onChange={onChage} /></td>
                         </tr>
                         <tr>
                             <td colSpan={2}><button type='submit'>로그인</button>

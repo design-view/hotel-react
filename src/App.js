@@ -1,5 +1,9 @@
 
-import { Route, Routes } from 'react-router-dom';
+
+
+import { createBrowserHistory } from 'history';
+import {  useEffect } from 'react';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import './App.css';
 import Footer from './components/Footer';
 import Header from './components/Header';
@@ -20,26 +24,26 @@ import WriteRoom from './pages/WriteRoom';
 
 
 function App() {
- 
+  
   return (
     <div className="App">
-      <Header />
+      <Header  />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/special"
           element={<SpecialContainer isMain={false} limits={10} />} />
-        <Route path="/special/:no" element={<SpDetailContainer />} />
-        <Route path="/join" element={<JoinPage />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/special/:no" element={<SpDetailContainer/>} />
+        <Route path="/join" element={<JoinPage  />} />
+        <Route path="/login" element={<Login  />} />
         <Route path="/findid" element={<IdFind />} />
         <Route path="/findpass" element={<PassFind />} />
-        <Route path="/writeEvent" element={<WriteEvent />} />
+        <Route path="/writeEvent" element={<WriteEvent  />} />
         <Route path="/updatepass" element={<EditPassword />} />
-        <Route path="/writeRoom" element={<WriteRoom />} />
+        <Route path="/writeRoom" element={<WriteRoom  />} />
         <Route path="/room" element={<RoomContainer isreserv={false} />} />
         <Route path="/guestroom/:no" element={<RoomDetailContainer />} />
-        <Route path="/reservation/*" element={<Reservation />} />
-        <Route path="/test" element={<ResurvCalendar />} />
+        <Route path="/reservation/*" element={<Reservation  />} />
+        <Route path="/test" element={<ResurvCalendar  />} />
       </Routes>
       <Footer />
     </div>

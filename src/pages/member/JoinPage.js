@@ -1,12 +1,15 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import PopupDom from '../../components/PopupDom';
 import PopupPostCode from '../../components/PopupPostCode';
 import Title from '../../components/Title';
 import { API_URL } from '../../config/apiurl';
+import { setMenu } from '../../modules/logincheck';
 import './JoinPage.css';
 const JoinPage = () => {
+    
     const navigate = useNavigate();
     const [formData, setFormData ] = useState({
         m_name: "",
@@ -18,6 +21,8 @@ const JoinPage = () => {
         m_add1: "",
         m_add2: ""
     });
+    const dispatch = useDispatch();
+    dispatch(setMenu(false))
     const onChange = (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -44,12 +49,41 @@ const JoinPage = () => {
         })
     }
     //폼전송 이벤트 
+    const regexEmail = new RegExp("[a-z0-9]+@[a-z]+\.[a-z]{2,3}");
+    const regexPass = new RegExp("^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$");
+    const regexPhone= new RegExp("^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$");
     const onSubmit = (e) => {
         e.preventDefault();
-        //입력이 다 되어있는지 체크하고 addMember()호출
+        //입력이 다 되어있는지 체크하고 
         if(formData.m_name !== "" && formData.m_pass !== "" && formData.m_phone !== "" 
         && formData.m_add1 !== "" && formData.m_add2 !== "" && formData.m_email !== "" ){
-            addMember();
+            //이메일 형식 체크 하기
+            if(!regexEmail.test(formData.m_email)){
+                alert("이메일을 정확하게 작성해 주세요") 
+            }
+            else { 
+                //비밀번호 형식 체크 
+                if(!regexPass.test(formData.m_pass)){
+                    alert("비밀번호는 최소 8 자, 하나 이상의 문자와 하나의 숫자로 입력하셔야 합니다.")
+                }
+                else {
+                    //비밀번호와 비밀번호 체크 일치하는지 체크
+                    if(formData.m_pass !== formData.m_passch){
+                        alert("비밀번호와 비밀번호체크가 일치하지 않습니다.")
+                    }   
+                    else {
+                        //전화번호 형식 체크 
+                        if(!regexPhone.test(formData.m_phone)){
+                            alert("전화번호는 숫자와 하이픈만 입력할 수 있습니다.")
+                        }
+                        else {
+                            addMember();
+                        }
+                    }   
+                }
+            }
+        }else {
+            alert("모든 항목을 작성해야 합니다.")
         }
     }
     const addMember = () => {

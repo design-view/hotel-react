@@ -9,8 +9,7 @@ import { dataUpdate } from '../modules/reserve';
 import './Reservation.css';
 import ReservationSign from './ReservationSign';
 import ReservCalendar from './ReservCalendar';
-import Test1 from './Test1';
-import Test2 from './Test2';
+
 
 const Reservation = () => {
     //체크인 체크아웃 날짜 스토어에서 받아오기

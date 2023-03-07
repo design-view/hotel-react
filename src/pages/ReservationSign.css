@@ -72,3 +72,20 @@
     width: 100%;
     padding: 20px 0;
 }
+@media screen and (max-width:892px) {
+    .reserveSign {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+    }
+    .reserveCumtomer {
+        width: 90%;
+        padding: 20px;
+    }
+    .reserveInfo {
+        width:85%;
+        border: 1px solid #333;
+        border-top-width: 3px;
+    }
+}

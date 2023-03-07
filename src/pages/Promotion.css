@@ -34,3 +34,19 @@
 .mainpro .text div {
     padding: 30px 0;
 }
+@media screen and (max-width:892px) {
+    .mainpro{
+        flex-direction: column;
+        align-items: center;
+    }
+    .mainpro > div {
+        width: 80%;
+    }
+    .mainpro > div:nth-child(2) {
+        align-self: flex-start;
+        width: 100%;
+    }
+    .mainpro .text {
+        padding: 40px 80px;
+    }
+}

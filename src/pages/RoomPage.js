@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import RoomList from '../components/RoomList';
 import Title from '../components/Title';
 

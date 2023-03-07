@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { API_URL } from '../config/apiurl';
+import { setMenu } from '../modules/logincheck';
 import { getDatas } from '../modules/special';
 import SpecialOffer from '../pages/SpecialOffer';
 import SpecialOfferPage from '../pages/SpecialOfferPage';
@@ -13,6 +14,7 @@ const SpecialContainer = ({ isMain, limits }) => {
     }
     const { loading, data, error} = useSelector(state=>state.special.specials);
     const dispatch = useDispatch();
+    dispatch(setMenu(false))
     useEffect(()=>{
         dispatch(getDatas(specialData))
     },[])

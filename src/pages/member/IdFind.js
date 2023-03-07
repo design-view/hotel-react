@@ -1,8 +1,10 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Title from '../../components/Title';
 import { API_URL } from '../../config/apiurl';
+import { setMenu } from '../../modules/logincheck';
 
 const IdFind = () => {
     const [idInfo, setIdInfo] = useState("");
@@ -10,6 +12,8 @@ const IdFind = () => {
         m_name: "",
         m_phone: ""
     });
+    const dispatch = useDispatch()
+    dispatch(setMenu(false))
     const onChange = (e) => {
         const {name, value} = e.target;
         setFormData({
@@ -28,7 +32,7 @@ const IdFind = () => {
         })
     }
     return (
-        <div className='inner'>
+        <div className='inner' id="login">
             <Title title="Find id"/>
             { idInfo ? <div>당신의 id는 {idInfo} 입니다. <Link to="/login"><button>로그인</button></Link></div> :
             <><p className='small'>가입시 입력한 이름과 전화번호를 입력해 주세요</p>

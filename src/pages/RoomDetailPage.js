@@ -3,6 +3,7 @@ import Title from '../components/Title';
 import { API_URL } from '../config/apiurl';
 import './RoomDetailPage.css';
 const RoomDetailPage = ({ data }) => {
+    const amenitys = data.r_amenity.split("*")
     return (
         <div className='inner'>
             <Title title={data.r_name} />
@@ -27,12 +28,7 @@ const RoomDetailPage = ({ data }) => {
                     <li>
                         <h4>어메니티</h4>
                         <ul>
-                            <li>북한강</li>
-                            <li>체크인: 15:00 </li>
-                            <li>이용요금: 330,000</li>
-                            <li>베드타입 : 퀸 베드 1개</li>
-                            <li>체크아웃: 11:00</li>
-                            <li>이용문의 052-589-1234</li>
+                            {amenitys.map(amenity=><li>{amenity}</li>)}
                         </ul>
                     </li>
                     <li>
