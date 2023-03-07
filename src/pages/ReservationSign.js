@@ -44,6 +44,10 @@ export default function ReservationSign() {
 
     const onChange = (e) => {
         const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]:value
+        })
     }
     const addReserve = () => {
         if (!formData.rv_reno) {
