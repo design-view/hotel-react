@@ -24,7 +24,7 @@ function SpecialList({list}){
     )
 }
 const SpecialOfferPage = ({data}) => {
-    const listItems = data.map(d=><SpecialList list={d} key={d.e_no}/>);
+    const listItems = data.map((d,index)=><SpecialList list={d} key={index}/>);
     return (
         <div className='specialpage'>
             <div className='inner'>

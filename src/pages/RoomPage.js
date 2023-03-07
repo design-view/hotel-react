@@ -10,13 +10,17 @@ const RoomPage = ({ data, isreserv, reservRoom }) => {
     // } else {
     //     const listitems = data.map(da => <RoomList data={da} key={da.r_no} />);
     // }
-    const listitems = reservRoom ? data.filter(da => reservRoom.indexOf(da.r_no) === -1).map(da => <RoomList data={da} key={da.r_no} />)
-        : data.map(da => <RoomList data={da} key={da.r_no} />);
+    const listitems = reservRoom ? 
+    data.filter(da => reservRoom.indexOf(da.r_no) === -1).map((da,index) => 
+    <RoomList data={da} key={index} />)
+        : data.map((da,index) => <RoomList data={da} key={index} />);
     return (
         <div className='inner'>
             {/* 예약페이지가 아닐때만 타이틀 지정하기 */}
             {!isreserv && <Title title="Room" />}
-            {isreserv && <div style={{ padding: "40px 0", fontSize: "18px" }}>객실</div>}
+            {isreserv && <div 
+            style={{ 
+                padding: "40px 0", fontSize: "18px" }}>객실</div>}
             <ul>
                 {listitems}
             </ul>

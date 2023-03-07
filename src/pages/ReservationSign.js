@@ -17,7 +17,7 @@ export default function ReservationSign() {
 
     const [formData, setFormData] = useState({
         rv_checkin: reserve.rv_date.rv_start,
-        rv_checkout: reserve.rv_date.rv_start,
+        rv_checkout: reserve.rv_date.rv_end,
         rv_adult: reserve.rv_adult,
         rv_child: reserve.rv_child,
         rv_email: useremail ? useremail : "",

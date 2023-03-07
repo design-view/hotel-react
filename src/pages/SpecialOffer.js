@@ -29,7 +29,7 @@ const SpecialOffer = ({ data }) => {
             <div className='inner'>
                 <h2><span>스페셜 오퍼</span>생각 밖의 선물, 마이다스 호텔 & 리조트</h2>
                 <ul>
-                    {data.map(d=><SpecialList list={d} key={d.e_no}/>)}
+                    {data.map((d,index)=><SpecialList list={d} key={index}/>)}
                 </ul>
             </div>
         </div>

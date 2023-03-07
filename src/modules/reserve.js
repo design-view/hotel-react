@@ -1,12 +1,7 @@
 //액션타입, 리듀서
-const DATE_DATA_UPDATE = "reserve/DATE_DATA_UPDATE";
 const DATA_UPDATE = "reserve/DATA_UPDATE";
 
 //액션 생성 객체
-export const dateDataUpdate = (data) => ({
-    type: DATE_DATA_UPDATE,
-    payload: data
-})
 export const dataUpdate = (data) => ({
     type: DATA_UPDATE,
     payload: data

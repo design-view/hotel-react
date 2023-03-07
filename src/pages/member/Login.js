@@ -38,7 +38,7 @@ const Login = () => {
                         //현재시간 객체를 생성
                         let expires = new Date();
                         //60분 더한 값으로 변경
-                        expires.setMinutes(expires.getMinutes() + 60)
+                        expires.setMinutes(expires.getMinutes() + 10)
                         setCookie('useremail', `${m_email}`, { path: '/', expires });
                         setCookie('usernickname', `${m_nickname}`, { path: '/', expires });
                         setCookie('username', `${m_name}`, { path: '/', expires });

@@ -8,7 +8,7 @@ import { getCookie } from '../util/cookie';
 
 const WriteRoom = () => {
     const navigate = useNavigate();
-    const username = getCookie("username")
+    const username = getCookie("usernickname")
     const isLogin = useSelector(state=>state.logincheck.isLogin);
     const [amenitychecks,setamenitychecks] = useState([
         {id:1, text:"북한산 전망의 발코니", checked: false},

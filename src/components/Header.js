@@ -6,8 +6,8 @@ import { setLogin, setLogout } from '../modules/logincheck';
 import { getCookie, removeCookie } from '../util/cookie';
 import './Header.css';
 const Header = () => {
-    const isLogin = useSelector(state => state.logincheck.isLogin);
     const username = getCookie("usernickname");
+    const isLogin = useSelector(state => state.logincheck.isLogin);
     const dispatch = useDispatch();
     const logoutClick = () => {
         removeCookie('usernickname');
@@ -17,12 +17,16 @@ const Header = () => {
         dispatch(setLogout());
     }
     useEffect(() => {
-        if (username) {
+        const loop = setInterval(()=>{
+            const username = getCookie("usernickname");
+            if (username) {
             dispatch(setLogin());
-        } else {
-            dispatch(setLogout());
-        }
-    }, [username, dispatch])
+            } else {
+                dispatch(setLogout());
+                clearInterval(loop);
+            }
+        },3000)
+    }, [username,dispatch])
     return (
         <header>
             <h1><Link to="/"><img src="/images/logo2.png" alt="" /></Link></h1>

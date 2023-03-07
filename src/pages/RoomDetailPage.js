@@ -1,6 +1,7 @@
 import React from 'react';
 import Title from '../components/Title';
 import { API_URL } from '../config/apiurl';
+import './RoomDetailPage.css';
 const RoomDetailPage = ({ data }) => {
     return (
         <div className='inner'>

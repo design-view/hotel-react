@@ -7,7 +7,7 @@ import { getCookie } from '../util/cookie';
 import { useSelector } from 'react-redux';
 const WriteEvent = () => {
     const navigate = useNavigate();
-    const username = getCookie("username")
+    const username = getCookie("usernickname")
     const isLogin = useSelector(state=>state.logincheck.isLogin);
     const [formData, setFormData] = useState({
         e_title: "",
