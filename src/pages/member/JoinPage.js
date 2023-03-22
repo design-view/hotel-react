@@ -50,7 +50,8 @@ const JoinPage = () => {
     }
     //폼전송 이벤트 
     const regexEmail = new RegExp("[a-z0-9]+@[a-z]+\.[a-z]{2,3}");
-    const regexPass = new RegExp("^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$");
+    //숫자, 특문 각 1회 이상, 영문은 2개 이상 사용하여 8자리 이상 16자리 이하입력
+    const regexPass = /(?=.*\d{1,16})(?=.*[~`!@#$%\^&*()-+=]{1,16})(?=.*[a-zA-Z]{2,16}).{8,16}$/;
     const regexPhone= new RegExp("^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$");
     const onSubmit = (e) => {
         e.preventDefault();
@@ -64,6 +65,7 @@ const JoinPage = () => {
             else { 
                 //비밀번호 형식 체크 
                 if(!regexPass.test(formData.m_pass)){
+                    console.log(formData.m_pass)
                     alert("비밀번호는 최소 8 자, 하나 이상의 문자와 하나의 숫자로 입력하셔야 합니다.")
                 }
                 else {
@@ -119,7 +121,9 @@ const JoinPage = () => {
                             </tr>
                             <tr>
                                 <td>비밀번호</td>
-                                <td><input type="password" 
+                                <td>
+                                * 숫자, 특문 각 1회 이상, 영문은 2개 이상 사용하여 8자리 이상 16자리 이하입력해주세요
+                                    <input type="password" 
                                 name="m_pass" value={formData.m_pass} 
                                 onChange={onChange} /></td>
                             </tr>
