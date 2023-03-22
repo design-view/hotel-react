@@ -1,9 +1,6 @@
-
-
-
-import { createBrowserHistory } from 'history';
 import {  useEffect } from 'react';
-import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Route, Routes, useLocation
+ } from 'react-router-dom';
 import './App.css';
 import Footer from './components/Footer';
 import Header from './components/Header';
@@ -24,7 +21,10 @@ import WriteRoom from './pages/WriteRoom';
 
 
 function App() {
-  
+  const location = useLocation();
+useEffect(() => {
+  console.log(location);
+}, [location])
   return (
     <div className="App">
       <Header  />

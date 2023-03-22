@@ -7,6 +7,8 @@ import { setLogin, setLogout, setMenu } from '../modules/logincheck';
 import { getCookie, removeCookie } from '../util/cookie';
 import './Header.css';
 const Header = () => {
+
+    
     const username = getCookie("usernickname");
     const {isLogin, menu} = useSelector(state => state.logincheck);
     const dispatch = useDispatch();
@@ -21,6 +23,7 @@ const Header = () => {
         dispatch(setMenu(!menu))
     }
     useEffect(() => {
+        
         const loop = setInterval(()=>{
             const username = getCookie("usernickname");
             if (username) {
