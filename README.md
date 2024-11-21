@@ -1,5 +1,5 @@
 
-<img src="https://github.com/user-attachments/assets/daa622b9-7c69-4786-8db3-4996b7f140be" alt="배너" width="100%"/>
+<img src="https://github.com/design-view/hotel-react/blob/main/hotelimg/main.png" alt="배너" width="100%"/>
 </a>
 
 <br/>
@@ -52,23 +52,28 @@ $ npm start
 <br/>
 
 ## 3.2 Frotend
-|  |  |  |
-|-----------------|-----------------|-----------------|
-| React    |  <img src="https://github.com/user-attachments/assets/e3b49dbb-981b-4804-acf9-012c854a2fd2" alt="React" width="100"> | 18.3.1    |
-| StyledComponents    |  <img src="https://github.com/user-attachments/assets/c9b26078-5d79-40cc-b120-69d9b3882786" alt="StyledComponents" width="100">| 6.1.12   |
-| MaterialUI    |  <img src="https://github.com/user-attachments/assets/75a46fa7-ebc0-4a9d-b648-c589f87c4b55" alt="MUI" width="100">    | 5.0.0  |
-| Redux    |  <img src="https://github.com/user-attachments/assets/3632d7d6-8d43-4dd5-ba7a-501a2bc3a3e4" alt="DayJs" width="100">    | 1.11.12    |
-| DayJs    |  <img src="https://github.com/user-attachments/assets/3632d7d6-8d43-4dd5-ba7a-501a2bc3a3e4" alt="DayJs" width="100">    | 1.11.12    |
-| DayJs    |  <img src="https://github.com/user-attachments/assets/3632d7d6-8d43-4dd5-ba7a-501a2bc3a3e4" alt="DayJs" width="100">    | 1.11.12    |
+|  |  |  
+|-----------------|-----------------|
+| React    | 18.1.0    |
+| antd    | 5.1.7   |
+| axios    | 1.2.6  |
+| react-redux     | 8.0.5    |
+| redux    | 4.2.1    |
+| redux-thunk    | 2.4.2    |
+| styled-components    | 5.3.6    |
+| web-vitals    | 2.1.4    |
 
 <br/>
 
 ## 3.3 Backend
-|  |  |  |
-|-----------------|-----------------|-----------------|
-| Node    |  <img src="https://github.com/user-attachments/assets/1694e458-9bb0-4a0b-8fe6-8efc6e675fa1" alt="Firebase" width="100">    | 10.12.5    |
-| Express    |  <img src="https://github.com/user-attachments/assets/1694e458-9bb0-4a0b-8fe6-8efc6e675fa1" alt="Firebase" width="100">    | 10.12.5    |
-| Mysal    |  <img src="https://github.com/user-attachments/assets/1694e458-9bb0-4a0b-8fe6-8efc6e675fa1" alt="Firebase" width="100">    | 10.12.5    |
+|  |  | 
+|-----------------|-----------------|
+| Node    | 10.12.5    |
+| Express       | 4.18.2   |
+| Mysql    | 2.18.1    |
+| cors       | 2.8.5   |
+| multer    | 1.4.5-lts.1    |
+| bcrypt    | 5.1.0    |
 
 <br/>
 
@@ -78,30 +83,6 @@ $ npm start
 | Git    |  <img src="https://github.com/user-attachments/assets/483abc38-ed4d-487c-b43a-3963b33430e6" alt="git" width="100">    |
 
 
-<br/>
-
-# 4. Project Structure (프로젝트 구조)
-```plaintext
-project/
-├── public/
-│   ├── index.html           # HTML 템플릿 파일
-│   └── favicon.ico          # 아이콘 파일
-├── src/
-│   ├── assets/              # 이미지, 폰트 등 정적 파일
-│   ├── components/          # 재사용 가능한 UI 컴포넌트
-│   ├── hooks/               # 커스텀 훅 모음
-│   ├── pages/               # 각 페이지별 컴포넌트
-│   ├── App.js               # 메인 애플리케이션 컴포넌트
-│   ├── index.js             # 엔트리 포인트 파일
-│   ├── index.css            # 전역 css 파일
-│   ├── firebaseConfig.js    # firebase 인스턴스 초기화 파일
-│   package-lock.json    # 정확한 종속성 버전이 기록된 파일로, 일관된 빌드를 보장
-│   package.json         # 프로젝트 종속성 및 스크립트 정의
-├── .gitignore               # Git 무시 파일 목록
-└── README.md                # 프로젝트 개요 및 사용법
-```
-
-<br/>
 <br/>
 
 
